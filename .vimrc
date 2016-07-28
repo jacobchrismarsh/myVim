@@ -15,6 +15,7 @@ colorscheme ron
 set cc=81                                   " Creates an 80 character line to show my where to stop. 
 highlight ColorColumn ctermbg=7
 
+let &t_Co=256                               " Enables 256 color support on VIm
 
 set mouse=a                                 "Enable mouse use.
 
