@@ -1,4 +1,5 @@
 "======================BASIC VIM SETTINGS======================================
+set nocompatible
 set number
 filetype plugin indent on
 set tabstop=4
@@ -37,8 +38,8 @@ imap jk <Esc>
 nore ; :
 
 " The cursor now moves how you would expect it to with wrapped lines
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
+nore j gj
+nore k gk
 
 "=====================SHORTCUTS================================================
 " Commenting blocks of code
