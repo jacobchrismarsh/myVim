@@ -46,11 +46,6 @@ set laststatus=2
 " Formats the status line really nicely
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ 
 
-j
-set pastetoggle=<F10>
-inoremap <C-v> <F10><C-r>+<F10>
-vnoremap <C-c> "+y
-set clipboard=unnamed
 "======================COLORS==================================================
 
 " Enables syntax highlighting
