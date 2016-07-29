@@ -66,6 +66,7 @@ set cursorline
 " Enables 256 color support on VIm
 let &t_Co=256
 
+
 "=====================KEY REMAPPINGS===========================================
 
 " Remap to make moving splits easier
@@ -111,8 +112,8 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 "=====================ADVANCED VIM SETTINGS====================================
 
 " Prevents VIm from making those annoying backup files
-set nu!
 set nobackup
+set noswapfile
 
 " Returns to the last edit position when opening files
 autocmd BufReadPost *
