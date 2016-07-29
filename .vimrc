@@ -37,6 +37,12 @@ set scrolloff=5
 " Highlight things as you search for them
 set incsearch
 
+" Searching is no longer case sensitive
+set ignorecase
+
+" If you search for something with a capital letter, it will be case-sensitive
+set smartcase
+
 " Shows commands, like 23dd, as you type them
 set showcmd
 
