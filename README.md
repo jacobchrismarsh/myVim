@@ -12,3 +12,9 @@ These are the files that I use in my Vim
 * **p** - Paste after cursor
 * **]p** - Make your paste match the indentation level of the line you are on
 * **yy** - Yank current line into buffer
+* **/** - Search for words after the cursor
+* **?** - Search for words before the cursor
+* **n** - While searching, goes to next occurrence of word
+* **N** - While searching, goes to previous occurence of word
+* **o** - Creates a new line under current line, and enters *insert mode*
+* **O** - Creates a new line above current line, and enters *insert mode*
