@@ -115,6 +115,9 @@ autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
+" This shortcut will close all buffers, but leave Vim open in a new file
+map qq :bp<bar>sp<bar>bn<bar>bd<CR>
+
 "=====================ADVANCED VIM SETTINGS====================================
 
 " Prevents VIm from making those annoying backup files
