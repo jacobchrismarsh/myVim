@@ -4,6 +4,9 @@
 " set it here to ensure it gets turned on. Better safe than sorry.
 set nocompatible
 
+" Allows you to open and edit new buffers without saving the current one.
+set hidden
+
 " Shows line numbers
 set number
 
@@ -46,11 +49,11 @@ set smartcase
 " Shows commands, like 23dd, as you type them
 set showcmd
 
-" Forces VIm to always show the status line
+" Forces Vim to always show the status line
 set laststatus=2
 
 " Formats the status line really nicely
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ 
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ 
 
 "======================COLORS==================================================
 
@@ -69,7 +72,7 @@ highlight ColorColumn ctermbg=7
 " Highlights the line that the cursor is on
 set cursorline
 
-" Enables 256 color support on VIm
+" Enables 256 color support on Vim
 let &t_Co=256
 
 
@@ -92,7 +95,7 @@ map j gj
 map k gk
 
 " In normal mode, space and ctrl-space will search forwards/backward
-" (For some reason, terminal and VIm interpret Ctrl-Space as Ctrl-@)
+" (For some reason, terminal and Vim interpret Ctrl-Space as Ctrl-@)
 map <space> /
 map <C-Space> ?
 map <C-@> <C-Space>
@@ -101,7 +104,7 @@ map <C-@> <C-Space>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Binds the left/right arrow keys to move left/right through tabs.
-" This might be weird if you're not used to hjkl navigation in VIm.
+" This might be weird if you're not used to hjkl navigation in Vim.
 nnoremap <Left> gT
 nnoremap <Right> gt
 
@@ -118,9 +121,12 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 " This shortcut will close all buffers, but leave Vim open in a new file
 map qq :bp<bar>sp<bar>bn<bar>bd<CR>
 
+" This shortcut will immediately open this vimrc in a vertical split
+nnoremap vv :vs<space>~/myVim/.vimrc<CR>
+
 "=====================ADVANCED VIM SETTINGS====================================
 
-" Prevents VIm from making those annoying backup files
+" Prevents Vim from making those annoying backup files
 set nobackup
 set noswapfile
 
