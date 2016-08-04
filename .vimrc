@@ -68,6 +68,13 @@ set showcmd
 " Forces Vim to always show the status line
 set laststatus=2
 
+" When I open a new vertical split, it will show up on the right side
+set splitright
+
+
+" When I open a new horizontal split, it will show up on the bottom
+set splitbelow
+
 
 " Formats the status line really nicely
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ 
