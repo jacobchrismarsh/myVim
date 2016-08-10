@@ -91,10 +91,10 @@ colorscheme jellybeans
 
 
 " Creates an 80 character line to show me where to stop.
-set cc=81
+set colorcolumn=81
 
 
-" Makes that 80 character line black
+" Makes that 80 character line the color grey
 highlight ColorColumn ctermbg=7
 
 
@@ -147,7 +147,7 @@ nnoremap <Right> gt
 
 "=====================SHORTCUTS================================================
 
-" Commenting blocks of code (',cc' to comment and ',cu' to uncomment)
+" Commenting blocks of code (,cc to comment and ,cu to uncomment)
 autocmd FileType c,cpp,java,scale let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType vim              let b:comment_leader = '" '
@@ -163,6 +163,7 @@ map qq :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap vv :vs<space>~/myVim/.vimrc<CR>
 
 
+autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR> 
 "=====================ADVANCED VIM SETTINGS====================================
 
 " Prevents Vim from making those annoying backup files
