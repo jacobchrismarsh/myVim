@@ -119,6 +119,11 @@ nnoremap <C-H> <C-W><C-H>
 inoremap jk <Esc>
 
 
+" In visual mode, maps the escape button to df (this is because jk moves the
+" the cursor around in visual mode).
+vnoremap df <Esc> 
+
+
 " Allows you to use the semi-colon in place of the colon in normal mode
 nnoremap ; :
 
