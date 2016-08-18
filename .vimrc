@@ -115,8 +115,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
-" Maps the escape button to jk
+" Maps the escape button to jk (both upper-case and lower-case)
 inoremap jk <Esc>
+inoremap JK <Esc>
 
 
 " In visual mode, maps the escape button to df (this is because jk moves the
