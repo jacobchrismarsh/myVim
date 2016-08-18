@@ -145,10 +145,16 @@ map <C-@> <C-Space>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 
-" Binds the left/right arrow keys to move left/right through tabs.
+" Binds the left/right arrow keys to move between previous/next buffer.
+" This might by weird if you're not used to hjkl navigation in Vim.
+nnoremap <Left> bp
+nnoremap <Right> bn
+
+
+" Binds the Ctrl-left/Ctrl-right arrow keys to move left/right through tabs.
 " This might be weird if you're not used to hjkl navigation in Vim.
-nnoremap <Left> gT
-nnoremap <Right> gt
+nnoremap <C-Left> gT
+nnoremap <C-Right> gt
 
 
 "=====================SHORTCUTS================================================
