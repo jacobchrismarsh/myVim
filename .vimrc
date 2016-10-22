@@ -163,6 +163,7 @@ nnoremap <C-Right> gt
 autocmd FileType c,cpp,java,scale let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType vim              let b:comment_leader = '" '
+autocmd FileType asm              let b:comment_leader = '; '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
@@ -175,6 +176,7 @@ map qq :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap vv :vs<space>~/myVim/.vimrc<CR>
 
 
+" An attempt at setting F4 to execute a python script. Still needs work
 autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR> 
 "=====================ADVANCED VIM SETTINGS====================================
 
