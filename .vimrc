@@ -75,6 +75,9 @@ set splitright
 " When I open a new horizontal split, it will show up on the bottom
 set splitbelow
 
+" Prevents vim from automatically writing a new line character at end of file
+set noeol
+
 
 " Formats the status line really nicely
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ 
@@ -143,6 +146,8 @@ map <C-@> <C-Space>
 
 " If you press F5, this will delete all trailing white space at end of lines
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+nnoremap <F2> :!clear && javac *.java<CR>
 
 
 " Binds the left/right arrow keys to move between previous/next buffer.
