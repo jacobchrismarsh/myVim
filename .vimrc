@@ -1,5 +1,8 @@
 "======================BASIC VIM SETTINGS======================================
 
+set binary
+au BufNewFile * set noeol
+
 " Enables a bunch of cool features. Normally gets enabled by default, but I
 " set it here to ensure it gets turned on. Better safe than sorry.
 set nocompatible
