@@ -1,7 +1,9 @@
 "======================BASIC VIM SETTINGS======================================
 
-set binary
-au BufNewFile * set noeol
+set noeol
+" set binary
+au BufWritePre * set binary | set noeol
+au BufWritePost * set nobinary | set eol
 
 " Enables a bunch of cool features. Normally gets enabled by default, but I
 " set it here to ensure it gets turned on. Better safe than sorry.
@@ -77,9 +79,6 @@ set splitright
 
 " When I open a new horizontal split, it will show up on the bottom
 set splitbelow
-
-" Prevents vim from automatically writing a new line character at end of file
-set noeol
 
 
 " Formats the status line really nicely
