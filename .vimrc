@@ -149,6 +149,7 @@ map <C-@> <C-Space>
 " If you press F5, this will delete all trailing white space at end of lines
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+"Compiles all java files in whichever directory you are in
 nnoremap <F2> :!clear && javac *.java<CR>
 
 
@@ -218,5 +219,3 @@ function! HasPaste()
     en
     return ''
 endfunction
-
-
