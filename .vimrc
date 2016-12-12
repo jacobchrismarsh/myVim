@@ -1,9 +1,5 @@
 "======================BASIC VIM SETTINGS======================================
 
-set noeol
-" set binary
-au BufWritePre * set binary | set noeol
-au BufWritePost * set nobinary | set eol
 
 " Enables a bunch of cool features. Normally gets enabled by default, but I
 " set it here to ensure it gets turned on. Better safe than sorry.
@@ -82,8 +78,13 @@ set splitbelow
 
 
 " Formats the status line really nicely
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ 
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\
 
+" These three lines prevent Vim from putting a new line character at the end
+" of a file
+set noeol
+au BufWritePre * set binary | set noeol
+au BufWritePost * set nobinary | set eol
 
 "======================COLORS==================================================
 
@@ -127,7 +128,7 @@ inoremap JK <Esc>
 
 " In visual mode, maps the escape button to df (this is because jk moves the
 " the cursor around in visual mode).
-vnoremap df <Esc> 
+vnoremap df <Esc>
 
 
 " Allows you to use the semi-colon in place of the colon in normal mode
@@ -152,14 +153,14 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Compiles all java files in whichever directory you are in
 nnoremap <F2> :!clear && javac *.java<CR>
 
-" Compiles all C files in whichever directory you are in 
+" Compiles all C files in whichever directory you are in
 nnoremap <F3> :!clear && gcc *.c && gcc *.h<CR>
 
 
 " Binds the left/right arrow keys to move between previous/next buffer.
 " This might by weird if you're not used to hjkl navigation in Vim.
-nnoremap <Left> bp
-nnoremap <Right> bn
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
 
 
 " Binds the Ctrl-left/Ctrl-right arrow keys to move left/right through tabs.
@@ -188,7 +189,7 @@ nnoremap vv :vs<space>~/myVim/.vimrc<CR>
 
 
 " An attempt at setting F4 to execute a python script. Still needs work
-autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR> 
+autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR>
 "=====================ADVANCED VIM SETTINGS====================================
 
 " Prevents Vim from making those annoying backup files
