@@ -19,11 +19,11 @@ filetype plugin indent on
 
 
 "Makes one tab character be 4 columns wide
-set tabstop=4
+set tabstop=3
 
 
 " Controls how many columns text gets indented when you use > and <
-set shiftwidth=4
+set shiftwidth=3
 
 
 " Converts tabs to spaces
@@ -82,9 +82,9 @@ set splitbelow
 
 " These three lines prevent Vim from putting a new line character at the end
 " of a file
-set noeol
-au BufWritePre * set binary | set noeol
-au BufWritePost * set nobinary | set eol
+" set noeol
+" au BufWritePre * set binary | set noeol
+" au BufWritePost * set nobinary | set eol
 
 "======================COLORS==================================================
 
