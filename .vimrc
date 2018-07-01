@@ -203,9 +203,9 @@ set noswapfile
 
 " Returns to the last edit position when opening files
 autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\""|
-    \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\""|
+            \ endif
 
 
 " Deletes trailing white space on save for python code
@@ -235,10 +235,12 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
+
 "" VIM COMMENTARY
 Plugin 'tpope/vim-commentary'
 
-"" NERD TREE 
+"" NERD TREE
 Plugin 'scrooloose/nerdtree'
 " autocmd vimenter * NERDTree "automatically opens nerdtree when opening vim
 
@@ -249,7 +251,7 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-"" EASY MOTION 
+"" EASY MOTION
 Plugin 'skwp/vim-easymotion'
 " let g=EasyMotion_leader_key = '<Leader>'
 
