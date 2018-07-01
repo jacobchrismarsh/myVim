@@ -19,11 +19,11 @@ filetype plugin indent on
 
 
 "Makes one tab character be 4 columns wide
-set tabstop=3
+set tabstop=4
 
 
 " Controls how many columns text gets indented when you use > and <
-set shiftwidth=3
+set shiftwidth=4
 
 
 " Converts tabs to spaces
@@ -76,6 +76,8 @@ set splitright
 " When I open a new horizontal split, it will show up on the bottom
 set splitbelow
 
+let mapleader = ","
+
 
 " Formats the status line really nicely
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\
@@ -97,7 +99,7 @@ colorscheme jellybeans
 
 
 " Creates an 80 character line to show me where to stop.
-set colorcolumn=81
+set colorcolumn=89
 
 
 " Makes that 80 character line the color grey
@@ -174,12 +176,12 @@ nnoremap <C-Right> gt
 "=====================SHORTCUTS================================================
 
 " Commenting blocks of code (,cc to comment and ,cu to uncomment)
-autocmd FileType c,cpp,java,scale let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType vim              let b:comment_leader = '" '
-autocmd FileType asm              let b:comment_leader = '; '
-noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+" autocmd FileType c,cpp,java,scale let b:comment_leader = '// '
+" autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+" autocmd FileType vim              let b:comment_leader = '" '
+" autocmd FileType asm              let b:comment_leader = '; '
+" noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+" noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 
 " This shortcut will close all buffers, but leave Vim open in a new file
@@ -191,7 +193,7 @@ nnoremap vv :vs<space>~/myVim/.vimrc<CR>
 
 
 " An attempt at setting F4 to execute a python script. Still needs work
-autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR>
+" autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR>
 "=====================ADVANCED VIM SETTINGS====================================
 
 " Prevents Vim from making those annoying backup files
@@ -225,3 +227,51 @@ function! HasPaste()
     en
     return ''
 endfunction
+
+"=====================VUNDLE SET UP============================================
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"" VIM COMMENTARY
+Plugin 'tpope/vim-commentary'
+
+"" NERD TREE 
+Plugin 'scrooloose/nerdtree'
+" autocmd vimenter * NERDTree "automatically opens nerdtree when opening vim
+
+autocmd StdinReadPre * let s:std_in=1 "Open up nerdtree if no files are specified
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+"" EASY MOTION 
+Plugin 'skwp/vim-easymotion'
+" let g=EasyMotion_leader_key = '<Leader>'
+
+"" CTRL-P
+Plugin 'ctrlpvim/ctrlp.vim'
+
+"" LIGHTLINE
+Plugin 'itchyny/lightline.vim'
+let g:lightline = {
+            \ 'colorscheme': 'jellybeans',
+            \ }
+
+"" MULTIPLE CURSORS
+Plugin 'terryma/vim-multiple-cursors'
+
+"" AUTOFORMAT
+Plugin 'Chiel92/vim-autoformat'
+au BufWrite * :Autoformat " Format the code on save
+let g:formatter_yapf_style='flake8'
+" let g:autoformat_autoindent = 0
+" let g:autoformat_retab = 0
+" let g:autoformat_remove_trailing_spaces = 0
+
+call vundle#end()
+filetype plugin indent on
