@@ -243,6 +243,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
+
 "" VIM COMMENTARY
 Plugin 'tpope/vim-commentary'
 
@@ -272,6 +274,9 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 " Remaps 's' from default function to one-char search
 nmap s <Plug>(easymotion-s)
+
+"" CTRL-P
+Plugin 'ctrlpvim/ctrlp.vim'
 
 "" LIGHTLINE
 Plugin 'itchyny/lightline.vim'

@@ -1,6 +1,5 @@
-mkdir ~/.vim
-mkdir ~/.vim/colors
-cp ~/myVim/colors/jellybeans.vim ~/.vim/colors/
+cp -R .vim  ~/.vim
+
 echo "" >> ~/.bash_profile
 echo "###########################" >> ~/.bash_profile
 echo "# VIM ALIAS FOR JACOB MARSHALL" >> ~/.bash_profile
