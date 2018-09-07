@@ -76,7 +76,14 @@ set splitright
 " When I open a new horizontal split, it will show up on the bottom
 set splitbelow
 
+
 let mapleader = ","
+
+
+" When your terminal is too wide, vim doesn't recognize mouse-clicks past the
+" 220th column. This fixes that. Only works on >7.3.632, or vim compiled with
+" mouse_sgr
+set ttymouse=sgr
 
 
 " Formats the status line really nicely
@@ -203,9 +210,9 @@ set noswapfile
 
 " Returns to the last edit position when opening files
 autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\""|
-    \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\""|
+            \ endif
 
 
 " Deletes trailing white space on save for python code
@@ -216,7 +223,8 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 
-
+" Automatically resizes vim splits if the terminal window is resized
+:autocmd VimResized * wincmd =
 
 "=====================HELPER FUNCTIONS=========================================
 
@@ -238,7 +246,7 @@ call vundle#begin()
 "" VIM COMMENTARY
 Plugin 'tpope/vim-commentary'
 
-"" NERD TREE 
+"" NERD TREE
 Plugin 'scrooloose/nerdtree'
 " autocmd vimenter * NERDTree "automatically opens nerdtree when opening vim
 
@@ -249,12 +257,21 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-"" EASY MOTION 
-Plugin 'skwp/vim-easymotion'
-" let g=EasyMotion_leader_key = '<Leader>'
-
-"" CTRL-P
-Plugin 'ctrlpvim/ctrlp.vim'
+"" EASY MOTION
+Plugin 'easymotion/vim-easymotion'
+" Replaces normal search with easymotion-search, highlights next/previous
+" occurences when pressing n or N
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" More easymotion, but this time with the <leader>hjkl keys
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+" Remaps 's' from default function to one-char search
+nmap s <Plug>(easymotion-s)
 
 "" LIGHTLINE
 Plugin 'itchyny/lightline.vim'
@@ -265,13 +282,32 @@ let g:lightline = {
 "" MULTIPLE CURSORS
 Plugin 'terryma/vim-multiple-cursors'
 
-"" AUTOFORMAT
-Plugin 'Chiel92/vim-autoformat'
-au BufWrite * :Autoformat " Format the code on save
-let g:formatter_yapf_style='flake8'
-" let g:autoformat_autoindent = 0
-" let g:autoformat_retab = 0
-" let g:autoformat_remove_trailing_spaces = 0
+"" VIM-SURROUND: Allows for easy surrounding of words and lines with "([{...
+"" How-To: http://www.futurile.net/2016/03/19/vim-surround-plugin-tutorial/
+Plugin 'tpope/vim-surround'
+
+"" The best python code formatter. :Black or ,= to use
+" Plugin 'ambv/black'
+
+" EASY-ALIGN: activate with ga<key to align around>, like =
+Plugin 'junegunn/vim-easy-align'
+"Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+"Start interactive EasyAlign in visual mode (e.g. vipga)
+nmap ga <Plug>(EasyAlign)
+
+
+" TEXT OBJEXTS
+" Allows me to add custom text objext to vim
+Plugin 'kana/vim-textobj-user'
+" Adds more line objects that don't include new-line at the end of the line
+" vil will select from cursor to end of line
+" val will select entire line
+" both of these will NOT select the newline char at the end of a line
+Plugin 'kana/vim-textobj-line'
+
+" THRIFT FILE SYNTAX HIGHLIGHTING
+Bundle 'solarnz/thrift.vim'
 
 call vundle#end()
 filetype plugin indent on
