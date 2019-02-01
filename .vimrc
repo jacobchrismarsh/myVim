@@ -18,9 +18,11 @@ set number
 filetype plugin indent on
 
 
-"Makes one tab character be 4 columns wide
+"Makes one tab character be 3 columns wide
 set tabstop=4
 
+"Makes one tab character be 3 columns wide
+set softtabstop=4
 
 " Controls how many columns text gets indented when you use > and <
 set shiftwidth=4
@@ -273,7 +275,7 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 " Remaps 's' from default function to one-char search
-nmap s <Plug>(easymotion-s)
+nmap <Leader>s <Plug>(easymotion-s)
 
 "" CTRL-P
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -313,6 +315,13 @@ Plugin 'kana/vim-textobj-line'
 
 " THRIFT FILE SYNTAX HIGHLIGHTING
 Bundle 'solarnz/thrift.vim'
+
+" Auto-complete that uses machine learning
+Plugin 'zxqfl/tabnine-vim'
+
+" ALE async linting 
+Plugin 'w0rp/ale'
+let b:ale_linters = {"python" : ["black"],}
 
 call vundle#end()
 filetype plugin indent on
