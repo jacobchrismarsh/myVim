@@ -203,6 +203,16 @@ nnoremap vv :vs<space>~/myVim/.vimrc<CR>
 
 " An attempt at setting F4 to execute a python script. Still needs work
 " autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR>
+
+" This allows you to repeat a macro by pressing <Enter> instead of '@@'
+nnoremap <silent> <cr> :call ReplayLastMacro()<cr>
+function! ReplayLastMacro()
+    try
+        normal @@
+    catch /E748/
+        normal @q
+    endtry
+endfunction
 "=====================ADVANCED VIM SETTINGS====================================
 
 " Prevents Vim from making those annoying backup files
@@ -285,9 +295,6 @@ Plugin 'itchyny/lightline.vim'
 let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ }
-
-"" MULTIPLE CURSORS
-Plugin 'terryma/vim-multiple-cursors'
 
 "" VIM-SURROUND: Allows for easy surrounding of words and lines with "([{...
 "" How-To: http://www.futurile.net/2016/03/19/vim-surround-plugin-tutorial/
