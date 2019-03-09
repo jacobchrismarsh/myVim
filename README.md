@@ -1,6 +1,9 @@
 # myVim
 These are the files that I use in my Vim
 
+# Installation
+Run `./setup.sh` to install my personal vim setup
+
 # Great Vim shortcuts!
 
 * **A** - Jump to the end of your current line and enter *insert mode*
