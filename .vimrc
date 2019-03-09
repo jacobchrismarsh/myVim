@@ -263,7 +263,8 @@ Plugin 'scrooloose/nerdtree'
 autocmd StdinReadPre * let s:std_in=1 "Open up nerdtree if no files are specified
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-nnoremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <Leader>f :NERDTreeFocus<Enter>
+nnoremap <Leader>c :NERDTreeClose<Enter>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
@@ -275,13 +276,22 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+map  f <Plug>(easymotion-fl)
+map  F <Plug>(easymotion-bd-fl)
+map  t <Plug>(easymotion-tl)
+map  t <Plug>(easymotion-bd-tl)
 " More easymotion, but this time with the <leader>hjkl keys
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-" Remaps 's' from default function to one-char search
-nmap <Leader>s <Plug>(easymotion-s)
+" map l <Plug>(easymotion-lineforward)
+" map j <Plug>(easymotion-j)
+" map k <Plug>(easymotion-k)
+" map h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+" Remaps 's' from default function to two-char search
+nmap <Leader>s <Plug>(easymotion-s2)
+
+" Replicates the smartcase option of Vim
+let g:EasyMotion_smartcase = 1
+
 
 "" CTRL-P
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -297,7 +307,7 @@ let g:lightline = {
 Plugin 'tpope/vim-surround'
 
 "" The best python code formatter. :Black or ,= to use
-" Plugin 'ambv/black'
+Plugin 'ambv/black'
 
 " EASY-ALIGN: activate with ga<key to align around>, like =
 Plugin 'junegunn/vim-easy-align'
@@ -326,5 +336,11 @@ Plugin 'zxqfl/tabnine-vim'
 Plugin 'w0rp/ale'
 let b:ale_linters = {"python" : ["black"],}
 
+" Allows you to repeat the most recent plugin command
+Plugin 'tpope/vim-repeat'
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+
+" Adds more physics to vim to make C-d and C-u scrolling palatable
+Plugin 'yuttie/comfortable-motion.vim'
 call vundle#end()
 filetype plugin indent on
