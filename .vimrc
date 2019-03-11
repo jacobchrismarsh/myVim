@@ -78,8 +78,10 @@ set splitright
 " When I open a new horizontal split, it will show up on the bottom
 set splitbelow
 
+" Lets vim know its the 21st century and terminals can draw fast now
+set ttyfast
 
-let mapleader = ","
+let mapleader = " "
 
 
 " When your terminal is too wide, vim doesn't recognize mouse-clicks past the
@@ -153,11 +155,12 @@ map j gj
 map k gk
 
 
+" March 10, 2019 - I dont think I need this anymore. Space is more valuable as a leader
 " In normal mode, space and ctrl-space will search forwards/backward
 " (For some reason, terminal and Vim interpret Ctrl-Space as Ctrl-@)
-map <space> /
-map <C-Space> ?
-map <C-@> <C-Space>
+" map <space> /
+" map <C-Space> ?
+" map <C-@> <C-Space>
 
 
 " If you press F5, this will delete all trailing white space at end of lines
@@ -279,7 +282,7 @@ map  N <Plug>(easymotion-prev)
 map  f <Plug>(easymotion-fl)
 map  F <Plug>(easymotion-bd-fl)
 map  t <Plug>(easymotion-tl)
-map  t <Plug>(easymotion-bd-tl)
+map  T <Plug>(easymotion-bd-tl)
 " More easymotion, but this time with the <leader>hjkl keys
 " map l <Plug>(easymotion-lineforward)
 " map j <Plug>(easymotion-j)
@@ -292,9 +295,33 @@ nmap <Leader>s <Plug>(easymotion-s2)
 " Replicates the smartcase option of Vim
 let g:EasyMotion_smartcase = 1
 
+" FZF.VIM <3
+set rtp+=/usr/local/opt/fzf
+Plugin 'junegunn/fzf.vim'
+let g:fzf_colors =
+  \ { 'fg':    ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+" Space-space will open FZF for CWD
+nnoremap <silent> <leader><Space> :Files<CR>
+" Space-dash will open FZF for directory of currently used file
+nnoremap <silent> <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
+" Space-b will search through active buffers
+nnoremap <silent> <leader>b :Buffers<CR>
+" Space-b will search through lines of all active buffers
+nnoremap <silent> <leader>l :Lines<CR>
 
-"" CTRL-P
-Plugin 'ctrlpvim/ctrlp.vim'
+
 
 "" LIGHTLINE
 Plugin 'itchyny/lightline.vim'
@@ -308,6 +335,7 @@ Plugin 'tpope/vim-surround'
 
 "" The best python code formatter. :Black or ,= to use
 Plugin 'ambv/black'
+nnoremap <Leader>= :Black<CR>
 
 " EASY-ALIGN: activate with ga<key to align around>, like =
 Plugin 'junegunn/vim-easy-align'
@@ -334,7 +362,11 @@ Plugin 'zxqfl/tabnine-vim'
 
 " ALE async linting 
 Plugin 'w0rp/ale'
-let b:ale_linters = {"python" : ["black"],}
+let g:ale_linters = {"python" : ["black"],}
+" Fix Python files with autopep8 and yapf.
+let g:ale_fixers = ['autopep8', 'yapf']
+" " Disable warnings about trailing whitespace for Python files.
+let g:ale_warn_about_trailing_whitespace = 0
 
 " Allows you to repeat the most recent plugin command
 Plugin 'tpope/vim-repeat'
