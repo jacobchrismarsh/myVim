@@ -299,7 +299,7 @@ nmap <Leader>s <Plug>(easymotion-s2)
 " Replicates the smartcase option of Vim
 let g:EasyMotion_smartcase = 1
 
-" FZF.VIM <3
+"" FZF.VIM <3
 set rtp+=/usr/local/opt/fzf
 Plugin 'junegunn/fzf.vim'
 let g:fzf_colors =
@@ -338,11 +338,11 @@ let g:lightline = {
 "" How-To: http://www.futurile.net/2016/03/19/vim-surround-plugin-tutorial/
 Plugin 'tpope/vim-surround'
 
-"" The best python code formatter. :Black or ,= to use
+"" The best python code formatter. :Black or <leader>= to use
 Plugin 'ambv/black'
 nnoremap <Leader>= :Black<CR>
 
-" EASY-ALIGN: activate with ga<key to align around>, like =
+"" EASY-ALIGN: activate with ga<key to align around>, like =
 Plugin 'junegunn/vim-easy-align'
 "Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -350,7 +350,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
-" TEXT OBJEXTS
+"" TEXT OBJEXTS
 " Allows me to add custom text objext to vim
 Plugin 'kana/vim-textobj-user'
 " Adds more line objects that don't include new-line at the end of the line
@@ -359,25 +359,25 @@ Plugin 'kana/vim-textobj-user'
 " both of these will NOT select the newline char at the end of a line
 Plugin 'kana/vim-textobj-line'
 
-" THRIFT FILE SYNTAX HIGHLIGHTING
+"" THRIFT FILE SYNTAX HIGHLIGHTING
 Bundle 'solarnz/thrift.vim'
 
-" Auto-complete that uses machine learning
+"" Auto-complete that uses machine learning
 Plugin 'zxqfl/tabnine-vim'
 
-" ALE async linting 
+"" ALE async linting 
 Plugin 'w0rp/ale'
 let g:ale_linters = {"python" : ["black"],}
 " Fix Python files with autopep8 and yapf.
 let g:ale_fixers = ['autopep8', 'yapf']
-" " Disable warnings about trailing whitespace for Python files.
+" Disable warnings about trailing whitespace for Python files.
 let g:ale_warn_about_trailing_whitespace = 0
 
-" Allows you to repeat the most recent plugin command
+"" VIM-REPEAT: Allows you to repeat the most recent plugin command
 Plugin 'tpope/vim-repeat'
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
-" Adds more physics to vim to make C-d and C-u scrolling palatable
+"" COMFORTABLE-MOTION:  Adds more physics to vim to make C-d and C-u scrolling palatable
 Plugin 'yuttie/comfortable-motion.vim'
 call vundle#end()
 filetype plugin indent on
