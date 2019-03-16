@@ -273,6 +273,10 @@ let NERDTreeDirArrows = 1
 
 "" EASY MOTION
 Plugin 'easymotion/vim-easymotion'
+" By default, <leader><leader> is the prefix. This conflicts with my binding
+" for FZF, so I disable the easymotion prefix here. Other commands still work
+" if specified with a `map`
+map <nop> <Plug>(easymotion-prefix) 
 " Replaces normal search with easymotion-search, highlights next/previous
 " occurences when pressing n or N
 map  / <Plug>(easymotion-sn)
@@ -311,14 +315,15 @@ let g:fzf_colors =
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ 'header':  ['fg', 'Comment'] 
+  \ }
 " Space-space will open FZF for CWD
-nnoremap <silent> <leader><Space> :Files<CR>
+nnoremap <leader><leader> :Files<CR>
 " Space-dash will open FZF for directory of currently used file
 nnoremap <silent> <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
 " Space-b will search through active buffers
 nnoremap <silent> <leader>b :Buffers<CR>
-" Space-b will search through lines of all active buffers
+" Space-l will search through lines of all active buffers
 nnoremap <silent> <leader>l :Lines<CR>
 
 
