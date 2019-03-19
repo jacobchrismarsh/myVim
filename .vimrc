@@ -395,6 +395,12 @@ nnoremap <silent> <leader>v :vertical Gstatus<CR>
 nnoremap <silent> <leader>c :Gcommit<CR>
 
 
+"" VIM SIGNIFY - shows git additions, deletions, and modifications in left sidebar
+Plugin 'mhinz/vim-signify'
+let g:signify_vcs_list = [ 'git', 'hg' ]
+let g:signify_sign_change = '~'
+
+
 "" VIM SLEUTH - auto-detects the tabbing and spacing setup for a file
 Plugin 'tpope/vim-sleuth'
 
