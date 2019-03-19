@@ -281,10 +281,10 @@ map  F <Plug>(easymotion-bd-fl)
 map  t <Plug>(easymotion-tl)
 map  T <Plug>(easymotion-bd-tl)
 " More easymotion, but this time with the <leader>hjkl keys
-map <Leader><Leader>l <Plug>(easymotion-lineforward)
-map <Leader><Leader>j <Plug>(easymotion-j)
-map <Leader><Leader>k <Plug>(easymotion-k)
-map <Leader><Leader>h <Plug>(easymotion-linebackward)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
 " let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 " Remaps 's' from default function to two-char search
 nmap <Leader>s <Plug>(easymotion-s2)
@@ -318,7 +318,7 @@ nnoremap <silent> <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
 " Space-b will search through active buffers
 nnoremap <silent> <leader>b :Buffers<CR>
 " Space-l will search through lines of all active buffers
-nnoremap <silent> <leader>l :Lines<CR>
+nnoremap <silent> <leader>n :Lines<CR>
 
 
 
