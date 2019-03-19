@@ -186,15 +186,6 @@ nnoremap <C-Right> gt
 
 "=====================SHORTCUTS================================================
 
-" Commenting blocks of code (,cc to comment and ,cu to uncomment)
-" autocmd FileType c,cpp,java,scale let b:comment_leader = '// '
-" autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-" autocmd FileType vim              let b:comment_leader = '" '
-" autocmd FileType asm              let b:comment_leader = '; '
-" noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-" noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
-
 " This shortcut will immediately open this vimrc in a vertical split
 nnoremap vv :vs<space>~/myVim/.vimrc<CR>
 
