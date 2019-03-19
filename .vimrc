@@ -294,7 +294,7 @@ let g:EasyMotion_smartcase = 1
 
 
 "" FZF.VIM <3
-set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
 Plugin 'junegunn/fzf.vim'
 let g:fzf_colors =
   \ { 'fg':    ['fg', 'Normal'],
@@ -390,6 +390,9 @@ Plugin 'yuttie/comfortable-motion.vim'
 
 "" VIM FUGITIVE - nice git wrapper
 Plugin 'tpope/vim-fugitive'
+nnoremap <silent> <leader>g :Gstatus<CR>
+nnoremap <silent> <leader>v :vertical Gstatus<CR>
+nnoremap <silent> <leader>c :Gcommit<CR>
 
 
 "" VIM SLEUTH - auto-detects the tabbing and spacing setup for a file
