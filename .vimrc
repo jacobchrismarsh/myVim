@@ -383,25 +383,56 @@ Plugin 'kana/vim-textobj-user'
 " both of these will NOT select the newline char at the end of a line
 Plugin 'kana/vim-textobj-line'
 
+
 "" THRIFT FILE SYNTAX HIGHLIGHTING
 Bundle 'solarnz/thrift.vim'
 
-"" Auto-complete that uses machine learning
-Plugin 'zxqfl/tabnine-vim'
-
-"" ALE async linting 
-Plugin 'w0rp/ale'
-let g:ale_linters = {"python" : ["black"],}
-" Fix Python files with autopep8 and yapf.
-let g:ale_fixers = ['autopep8', 'yapf']
-" Disable warnings about trailing whitespace for Python files.
-let g:ale_warn_about_trailing_whitespace = 0
 
 "" VIM-REPEAT: Allows you to repeat the most recent plugin command
 Plugin 'tpope/vim-repeat'
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
+
 "" COMFORTABLE-MOTION:  Adds more physics to vim to make C-d and C-u scrolling palatable
 Plugin 'yuttie/comfortable-motion.vim'
+
+
+"" VIM FUGITIVE - nice git wrapper
+Plugin 'tpope/vim-fugitive'
+
+
+"" VIM SLEUTH - auto-detects the tabbing and spacing setup for a file
+Plugin 'tpope/vim-sleuth'
+
+
+"============================ CONDITIONAL PLUGINS ===============================
+
+" Only load Black if Vim compiled with Python3
+if has('python3')
+  "" The best python code formatter. :Black or <leader>= to use
+  Plugin 'ambv/black'
+  nnoremap <Leader>= :Black<CR>
+endif
+
+
+" Only load these plugins if you have Vim 8 or above
+if v:version >= 800
+  "" Auto-complete that uses machine learning
+  Plugin 'zxqfl/tabnine-vim'
+  
+
+  "" ALE async linting 
+  Plugin 'w0rp/ale'
+  let g:ale_linters = {"python" : ["black"],}
+  " Fix Python files with autopep8 and yapf.
+  let g:ale_fixers = ['autopep8', 'yapf']
+  " Disable warnings about trailing whitespace for Python files.
+  let g:ale_warn_about_trailing_whitespace = 0
+  " Write this in your vimrc file
+  let g:ale_lint_on_text_changed = 'never'
+  " " You can disable this option too if you don't want linters to run on opening a file
+  let g:ale_lint_on_enter = 0
+endif
+
 call vundle#end()
 filetype plugin indent on
