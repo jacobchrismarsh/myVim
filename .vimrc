@@ -333,17 +333,38 @@ nnoremap <silent> <leader>l :Lines<CR>
 
 "" LIGHTLINE
 Plugin 'itchyny/lightline.vim'
+" let g:lightline = {
+"             \ 'colorscheme': 'jellybeans',
+"             \ 'component_function': {
+"             \   'gitbranch': 'fugitive#head'
+"             \ }
+"             \ }
 let g:lightline = {
-            \ 'colorscheme': 'jellybeans',
-            \ }
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ }
+" Lightline will display full pathname of file relative to git project root
+function! LightlineFilename()
+    let root = fnamemodify(get(b:, 'git_dir'), ':h')
+    let path = expand('%:p')
+    if path[:len(root)-1] ==# root
+        return path[len(root)+1:]
+    endif
+    return expand('%')
+endfunction
+
 
 "" VIM-SURROUND: Allows for easy surrounding of words and lines with "([{...
 "" How-To: http://www.futurile.net/2016/03/19/vim-surround-plugin-tutorial/
 Plugin 'tpope/vim-surround'
 
-"" The best python code formatter. :Black or <leader>= to use
-Plugin 'ambv/black'
-nnoremap <Leader>= :Black<CR>
 
 "" EASY-ALIGN: activate with ga<key to align around>, like =
 Plugin 'junegunn/vim-easy-align'
