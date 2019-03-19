@@ -1,6 +1,5 @@
 "======================BASIC VIM SETTINGS======================================
 
-
 " Enables a bunch of cool features. Normally gets enabled by default, but I
 " set it here to ensure it gets turned on. Better safe than sorry.
 set nocompatible
@@ -256,8 +255,10 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+
 "" VIM COMMENTARY
 Plugin 'tpope/vim-commentary'
+
 
 "" NERD TREE
 Plugin 'scrooloose/nerdtree'
@@ -270,6 +271,7 @@ nnoremap <Leader>f :NERDTreeFocus<Enter>
 nnoremap <Leader>c :NERDTreeClose<Enter>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
 
 "" EASY MOTION
 Plugin 'easymotion/vim-easymotion'
