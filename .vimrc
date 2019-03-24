@@ -172,6 +172,10 @@ nnoremap <right> :bn<CR>
 nnoremap <C-Left> gT
 nnoremap <C-Right> gt
 
+" Jumps to next/previous errors when you use :make command
+nnoremap ]e :cn<CR>
+nnoremap [e :cp<CR>
+
 
 "=====================SHORTCUTS================================================
 
