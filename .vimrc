@@ -393,6 +393,7 @@ Plugin 'tpope/vim-fugitive'
 nnoremap <silent> <leader>g :Gstatus<CR>
 nnoremap <silent> <leader>v :vertical Gstatus<CR>
 nnoremap <silent> <leader>c :Gcommit<CR>
+nnoremap <silent> <leader>d :Gdiff<CR>
 
 
 "" VIM SIGNIFY - shows git additions, deletions, and modifications in left sidebar
