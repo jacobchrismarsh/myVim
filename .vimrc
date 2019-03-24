@@ -387,6 +387,10 @@ highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 Plugin 'tpope/vim-sleuth'
 
 
+"" VIM-MACRO-REPEAT - Allows you to repeat a macro using just '.' 
+Plugin 'jacobchrismarsh/vim-macro-repeat'
+
+
 "============================ CONDITIONAL PLUGINS ===============================
 
 " Only load Black if Vim compiled with Python3 and you have >Python3.6
