@@ -410,10 +410,10 @@ Plugin 'tpope/vim-sleuth'
 
 "============================ CONDITIONAL PLUGINS ===============================
 
-let python_version = system('python3 --version')
-let python_version_number = split(python_version)[1]
 " Only load Black if Vim compiled with Python3 and you have >Python3.6
 " installed
+let python_version = system('python3 --version')
+let python_version_number = split(python_version)[1]
 if has('python3') && str2float(python_version_number[0:2]) > 3.6
   "" The best python code formatter. :Black or <leader>= to use
   Plugin 'ambv/black'
