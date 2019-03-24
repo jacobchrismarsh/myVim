@@ -374,7 +374,6 @@ Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'tpope/vim-fugitive'
 nnoremap <silent> <leader>g :Gstatus<CR>
 nnoremap <silent> <leader>v :vertical Gstatus<CR>
-nnoremap <silent> <leader>c :Gcommit<CR>
 nnoremap <silent> <leader>d :Gdiff<CR>
 
 
