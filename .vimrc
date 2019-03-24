@@ -20,8 +20,10 @@ filetype plugin indent on
 "Makes one tab character be 3 columns wide
 set tabstop=4
 
+
 "Makes one tab character be 3 columns wide
 set softtabstop=4
+
 
 " Controls how many columns text gets indented when you use > and <
 set shiftwidth=4
@@ -70,6 +72,7 @@ set showcmd
 " Forces Vim to always show the status line
 set laststatus=2
 
+
 " When I open a new vertical split, it will show up on the right side
 set splitright
 
@@ -77,9 +80,12 @@ set splitright
 " When I open a new horizontal split, it will show up on the bottom
 set splitbelow
 
+
 " Lets vim know its the 21st century and terminals can draw fast now
 set ttyfast
 
+
+" Set the leader key to <Space>
 let mapleader = " "
 
 
@@ -88,9 +94,6 @@ let mapleader = " "
 " mouse_sgr
 set ttymouse=sgr
 
-
-" Formats the status line really nicely
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\
 
 " These three lines prevent Vim from putting a new line character at the end
 " of a file
@@ -154,22 +157,8 @@ map j gj
 map k gk
 
 
-" March 10, 2019 - I dont think I need this anymore. Space is more valuable as a leader
-" In normal mode, space and ctrl-space will search forwards/backward
-" (For some reason, terminal and Vim interpret Ctrl-Space as Ctrl-@)
-" map <space> /
-" map <C-Space> ?
-" map <C-@> <C-Space>
-
-
 " If you press F5, this will delete all trailing white space at end of lines
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" Compiles all java files in whichever directory you are in
-nnoremap <F2> :!clear && javac *.java<CR>
-
-" Compiles all C files in whichever directory you are in
-nnoremap <F3> :!clear && gcc *.c && gcc *.h<CR>
 
 
 " Binds the left/right arrow keys to move between previous/next buffer.
@@ -190,11 +179,8 @@ nnoremap <C-Right> gt
 nnoremap vv :vs<space>~/myVim/.vimrc<CR>
 
 
-" An attempt at setting F4 to execute a python script. Still needs work
-" autocmd BufEnter *.py nnoremap <F4> :w<space>!python<CR>
-
-" This allows you to repeat a macro by pressing <Enter> instead of '@@'
-nnoremap <silent> <cr> :call ReplayLastMacro()<cr>
+" This allows you to repeat a macro by pressing <leader><Enter> instead of '@@'
+nnoremap <silent> <leader><CR> :call ReplayLastMacro()<cr>
 function! ReplayLastMacro()
     try
         normal @@
@@ -202,6 +188,7 @@ function! ReplayLastMacro()
         normal @q
     endtry
 endfunction
+
 "=====================ADVANCED VIM SETTINGS====================================
 
 " Prevents Vim from making those annoying backup files
@@ -224,20 +211,13 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 
+
 " Automatically resizes vim splits if the terminal window is resized
 :autocmd VimResized * wincmd =
 
-"=====================HELPER FUNCTIONS=========================================
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE '
-    en
-    return ''
-endfunction
 
 "=====================VUNDLE SET UP============================================
+
 set nocompatible
 filetype off
 
