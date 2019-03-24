@@ -301,20 +301,18 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>n :Lines<CR>
 
 
-
 "" LIGHTLINE
 Plugin 'itchyny/lightline.vim'
-" let g:lightline = {
-"             \ 'colorscheme': 'jellybeans',
-"             \ 'component_function': {
-"             \   'gitbranch': 'fugitive#head'
-"             \ }
-"             \ }
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [
+      \         ['lineinfo'],
+      \         ['percent'],
+      \         ['filetype'],
+      \     ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
