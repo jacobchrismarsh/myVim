@@ -384,6 +384,7 @@ let g:signify_sign_change = '~'
 highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+let g:signify_realtime = 1
 
 
 "" VIM SLEUTH - auto-detects the tabbing and spacing setup for a file
