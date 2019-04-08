@@ -177,6 +177,12 @@ nnoremap ]e :cn<CR>
 nnoremap [e :cp<CR>
 
 
+" Sets up vim to support spelling changes. Upon pressing C-l, Vim will
+" intelligently fix the most recent spelling error.
+" setlocal spell
+" set spelllang=nl,en_gb
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 "=====================SHORTCUTS================================================
 
 " This shortcut will immediately open this vimrc in a vertical split
