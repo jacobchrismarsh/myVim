@@ -138,8 +138,6 @@ nnoremap <C-H> <C-W><C-H>
 
 " Maps the escape button to jk (both upper-case and lower-case)
 inoremap jk <Esc>
-inoremap JK <Esc>
-inoremap Jk <Esc>
 inoremap jK <Esc>
 
 
@@ -406,6 +404,12 @@ Plugin 'jacobchrismarsh/vim-macro-repeat'
 Plugin 'terryma/vim-expand-region'
 vmap K <Plug>(expand_region_expand)
 vmap J <Plug>(expand_region_shrink)
+
+
+"" VIM-YANKSTACK. Keeps a stack of all yanks that you can traverse
+Plugin 'maxbrunsfeld/vim-yankstack'
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 
 "============================ CONDITIONAL PLUGINS ===============================
