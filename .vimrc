@@ -402,6 +402,12 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'jacobchrismarsh/vim-macro-repeat'
 
 
+"" VIM-EXPAND-REGION. Press 'J' and 'K' to shrink and expand a visual selection
+Plugin 'terryma/vim-expand-region'
+vmap K <Plug>(expand_region_expand)
+vmap J <Plug>(expand_region_shrink)
+
+
 "============================ CONDITIONAL PLUGINS ===============================
 
 " Only load Black if Vim compiled with Python3 and you have >Python3.6
