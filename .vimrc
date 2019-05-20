@@ -390,8 +390,9 @@ let g:signify_sign_change = '~'
 highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-let g:signify_realtime = 1
-
+let g:signify_realtime = 1 " Signify updates more often
+let g:signify_cursorhold_insert = 0 "Signify won't take me out of insert-mode to update
+let g:signify_cursorhold_normal = 0
 
 "" VIM SLEUTH - auto-detects the tabbing and spacing setup for a file
 Plugin 'tpope/vim-sleuth'
