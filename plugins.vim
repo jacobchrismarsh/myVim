@@ -155,6 +155,9 @@ nmap <leader>1 :call CurtineIncSw()<CR>
 " Omit the final newline of a file if it wasn't present when we opened it
 Plugin 'vim-scripts/PreserveNoEOL'
 
+" Adds smart behavior to surrounding characters like (), {}, [], ""
+Plugin 'doums/coBra'
+
 
 "============================ CONDITIONAL PLUGINS ===============================
 
