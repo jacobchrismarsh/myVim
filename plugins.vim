@@ -56,9 +56,9 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] 
   \ }
 " Space-space will open FZF for CWD
-" nnoremap <leader><leader> :Files<CR>
+nnoremap <leader><leader> :Files<CR>
 " Space-dash will open FZF for directory of currently used file
-nnoremap <leader><leader> :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
 " Space-b will search through active buffers
 nnoremap <silent> <leader>b :Buffers<CR>
 " Space-l will search through lines of all active buffers
@@ -93,10 +93,6 @@ function! LightlineFilename()
     return expand('%')
 endfunction
 
-
-"" VIM-SURROUND: Allows for easy surrounding of words and lines with "([{...
-"" How-To: http://www.futurile.net/2016/03/19/vim-surround-plugin-tutorial/
-Plugin 'tpope/vim-surround'
 
 "" TEXT OBJEXTS
 " Allows me to add custom text objext to vim
@@ -146,6 +142,10 @@ Plugin 'maxbrunsfeld/vim-yankstack'
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
+"" VIM-SURROUND: Allows for easy surrounding of words and lines with "([{...
+"" How-To: http://www.futurile.net/2016/03/19/vim-surround-plugin-tutorial/
+Plugin 'tpope/vim-surround'
+
 " Syntax highlighting for hack files
 Plugin 'hhvm/vim-hack'
 
@@ -165,6 +165,11 @@ let g:rustfmt_autosave = 1
 
 " Makes it easy to switch two things, using 'cx'
 Plugin 'tommcdo/vim-exchange'
+
+Plugin 'vim-python/python-syntax' " Better python syntax highlighting
+let g:python_highlight_all = 1
+
+Plugin 'bfrg/vim-cpp-modern' " Better cpp syntax highlighting
 
 "============================ CONDITIONAL PLUGINS ===============================
 
