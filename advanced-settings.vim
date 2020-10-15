@@ -31,10 +31,10 @@ augroup targets
 augroup END
 
 " Opens up netrw in currect directory if you don't specify a file
-augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * if argc() == 0 | Explore! | endif
-augroup END
+" augroup ProjectDrawer
+"     autocmd!
+"     autocmd VimEnter * if argc() == 0 | Explore! | endif
+" augroup END
 
 " Allow netrw to remove directories even if they have files in them
 let g:netrw_localrmdir='rm -r'

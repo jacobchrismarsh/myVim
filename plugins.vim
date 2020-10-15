@@ -136,6 +136,7 @@ Plugin 'tpope/vim-sleuth'
 
 "" VIM VINEGAR - better netrw controls
 Plugin 'tpope/vim-vinegar'
+let g:netrw_fastbrowse = 0 " Prevent vinegar from keeping useless netrw buffers 
 
 "" VIM-MACRO-REPEAT - Allows you to repeat a macro using just '.' 
 Plugin 'jacobchrismarsh/vim-macro-repeat'
@@ -158,6 +159,12 @@ Plugin 'vim-scripts/PreserveNoEOL'
 " Adds smart behavior to surrounding characters like (), {}, [], ""
 Plugin 'doums/coBra'
 
+" Rust Development 
+Plugin 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
+
+" Makes it easy to switch two things, using 'cx'
+Plugin 'tommcdo/vim-exchange'
 
 "============================ CONDITIONAL PLUGINS ===============================
 
