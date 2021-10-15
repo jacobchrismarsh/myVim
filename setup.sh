@@ -4,6 +4,9 @@ git submodule init && git submodule update
 echo "Copying Vim plugins to ~/.vim/bundle/"
 cp -R .vim  ~/.vim
 
+echo "Creating persistent undo directory"
+mkdir ~/.vim/undodir
+
 echo "Creating a new vim alias in ~/.bash_profile"
 echo "" >> ~/.bash_profile
 echo "###########################" >> ~/.bash_profile

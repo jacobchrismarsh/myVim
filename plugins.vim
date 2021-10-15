@@ -104,7 +104,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-line'
 
 "" THRIFT FILE SYNTAX HIGHLIGHTING
-Bundle 'solarnz/thrift.vim'
+Plugin 'solarnz/thrift.vim'
 
 "" VIM-REPEAT: Allows you to repeat the most recent plugin command
 Plugin 'tpope/vim-repeat'
@@ -155,9 +155,6 @@ nmap <leader>1 :call CurtineIncSw()<CR>
 
 " Omit the final newline of a file if it wasn't present when we opened it
 Plugin 'vim-scripts/PreserveNoEOL'
-
-" Adds smart behavior to surrounding characters like (), {}, [], ""
-Plugin 'doums/coBra'
 
 " Rust Development 
 Plugin 'rust-lang/rust.vim'

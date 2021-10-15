@@ -103,3 +103,6 @@ set ttymouse=sgr
 
 
 set tags=tags;/
+
+set undofile
+set undodir=~/.vim/undodir/

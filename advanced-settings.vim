@@ -4,6 +4,9 @@
 set nobackup
 set noswapfile
 
+" Get the vim info files out of my $HOME directory
+set viminfo+=n~/.vim/viminfo/viminfo
+
 
 " Returns to the last edit position when opening files
 autocmd BufReadPost *
