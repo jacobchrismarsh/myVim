@@ -39,6 +39,7 @@ let g:EasyMotion_smartcase = 1
 
 "" FZF.VIM <3
 set rtp+=~/.fzf
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 let g:fzf_colors =
   \ { 'fg':    ['fg', 'Normal'],
@@ -112,8 +113,8 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 "" VIM FUGITIVE - nice git wrapper
 Plugin 'tpope/vim-fugitive'
-nnoremap <silent> <leader>g :Gstatus<CR>
-nnoremap <silent> <leader>v :vertical Gstatus<CR>
+nnoremap <silent> <leader>g :Git<CR>
+nnoremap <silent> <leader>v :vertical Git<CR>
 nnoremap <silent> <leader>d :Gdiff<CR>
 
 "" VIM SIGNIFY - shows git additions, deletions, and modifications in left sidebar

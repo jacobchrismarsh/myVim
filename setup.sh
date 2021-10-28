@@ -1,8 +1,8 @@
-echo "Installing vim plugins..."
-git submodule init && git submodule update
+echo "Installing Vundle package manager"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-echo "Copying Vim plugins to ~/.vim/bundle/"
-cp -R .vim  ~/.vim
+echo "Installing vim plugins..."
+vim -u ~/myVim.vimrc +PluginInstall +qall
 
 echo "Creating persistent undo directory"
 mkdir ~/.vim/undodir
